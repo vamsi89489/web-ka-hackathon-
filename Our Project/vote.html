@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"href="vote.css">
+<title>Vote Polling System</title>
+</head>
+<style>
+    
+    body{
+        background-image:url('votebg.jpg');
+    }
+
+</style>
+<body>
+<div class="container">
+    <h1>Vote for Your Favorite Candidate</h1>
+    <form id="voteForm">
+        <div class="candidate">
+            <input type="radio" id="candidate1" name="candidate" value="Candidate A">
+            <label for="candidate1">Candidate A</label>
+        </div>
+        <div class="candidate">
+            <input type="radio" id="candidate2" name="candidate" value="Candidate B">
+            <label for="candidate2">Candidate B</label>
+        </div>
+        <div class="candidate">
+            <input type="radio" id="candidate3" name="candidate" value="Candidate C">
+            <label for="candidate3">Candidate C</label>
+        </div>
+        <button type="submit" class="btn">Cast Vote</button>
+    </form>
+</div>
+<script>
+    document.getElementById('voteForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var selectedCandidate = document.querySelector('input[name="candidate"]:checked');
+        if (selectedCandidate) {
+            alert('You voted for ' + selectedCandidate.value);
+            // Here you can send the vote to the server for processing
+        } else {
+            alert('Please select a candidate before casting your vote.');
+        }
+    });
+</script>
+</body>
+</html>
